@@ -351,8 +351,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 18
-#define YY_END_OF_BUFFER 19
+#define YY_NUM_RULES 32
+#define YY_END_OF_BUFFER 33
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -360,13 +360,14 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[50] =
+static const flex_int16_t yy_accept[60] =
     {   0,
-        0,    0,   19,   17,   16,   15,   17,    8,    9,    4,
-       13,    4,    1,   12,    5,    4,    5,    3,   10,   11,
-        3,    3,    3,    3,    3,    3,    6,    7,    5,    0,
-        1,    3,    3,    2,    3,    3,    3,    3,    0,    0,
-        3,    3,    3,    3,   14,    3,    3,    3,    0
+        0,    0,   33,   31,   30,   29,   31,   22,   23,   11,
+        9,   27,   10,   12,    7,   26,   14,   13,   16,    8,
+       24,   25,    8,    8,    8,    8,    8,    8,   20,   21,
+       18,    0,    7,   15,   19,   17,    8,    8,    1,    8,
+        8,    8,    8,    0,    0,    8,    3,    8,    8,    8,
+       28,    2,    8,    5,    8,    8,    6,    4,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -409,40 +410,42 @@ static const YY_CHAR yy_meta[36] =
         3,    3,    3,    1,    1
     } ;
 
-static const flex_int16_t yy_base[52] =
+static const flex_int16_t yy_base[62] =
     {   0,
         0,    0,   67,   68,   68,   68,   51,   68,   68,   68,
-       68,   58,   52,   68,   48,   47,   46,    0,   68,   68,
-       35,   14,   38,    0,   31,   34,   68,   68,   68,   49,
-       43,    0,   25,    0,   23,   22,   27,   26,   42,   37,
-       26,   15,   25,   19,   68,   14,   18,   12,   68,   34,
+       68,   68,   68,   58,   52,   68,   48,   47,   46,    0,
+       68,   68,   35,   14,   38,    0,   31,   34,   68,   68,
+       68,   49,   43,   68,   68,   68,    0,   25,    0,   23,
+       22,   27,   26,   42,   37,   26,    0,   15,   25,   19,
+       68,    0,   14,    0,   18,   12,    0,    0,   68,   34,
        40
     } ;
 
-static const flex_int16_t yy_def[52] =
+static const flex_int16_t yy_def[62] =
     {   0,
-       49,    1,   49,   49,   49,   49,   49,   49,   49,   49,
-       49,   49,   49,   49,   49,   49,   49,   50,   49,   49,
-       50,   50,   50,   50,   50,   50,   49,   49,   49,   51,
-       49,   50,   50,   50,   50,   50,   50,   50,   51,   49,
-       50,   50,   50,   50,   49,   50,   50,   50,    0,   49,
-       49
+       59,    1,   59,   59,   59,   59,   59,   59,   59,   59,
+       59,   59,   59,   59,   59,   59,   59,   59,   59,   60,
+       59,   59,   60,   60,   60,   60,   60,   60,   59,   59,
+       59,   61,   59,   59,   59,   59,   60,   60,   60,   60,
+       60,   60,   60,   61,   59,   60,   60,   60,   60,   60,
+       59,   60,   60,   60,   60,   60,   60,   60,    0,   59,
+       59
     } ;
 
 static const flex_int16_t yy_nxt[104] =
     {   0,
-        4,    5,    6,    7,    8,    9,   10,   10,   11,   10,
-       12,   13,   14,   15,   16,   17,   18,   19,   20,   18,
-       21,   18,   18,   22,   18,   18,   18,   23,   24,   18,
-       18,   25,   26,   27,   28,   34,   32,   34,   34,   35,
-       39,   48,   39,   47,   34,   46,   34,   45,   40,   44,
-       43,   42,   34,   41,   31,   40,   38,   37,   36,   33,
-       29,   29,   29,   31,   30,   29,   49,    3,   49,   49,
-       49,   49,   49,   49,   49,   49,   49,   49,   49,   49,
-       49,   49,   49,   49,   49,   49,   49,   49,   49,   49,
-       49,   49,   49,   49,   49,   49,   49,   49,   49,   49,
+        4,    5,    6,    7,    8,    9,   10,   11,   12,   13,
+       14,   15,   16,   17,   18,   19,   20,   21,   22,   20,
+       23,   20,   20,   24,   20,   20,   20,   25,   26,   20,
+       20,   27,   28,   29,   30,   39,   37,   58,   57,   40,
+       44,   56,   44,   55,   54,   53,   52,   51,   45,   50,
+       49,   48,   47,   46,   33,   45,   43,   42,   41,   38,
+       36,   35,   34,   33,   32,   31,   59,    3,   59,   59,
+       59,   59,   59,   59,   59,   59,   59,   59,   59,   59,
+       59,   59,   59,   59,   59,   59,   59,   59,   59,   59,
+       59,   59,   59,   59,   59,   59,   59,   59,   59,   59,
 
-       49,   49,   49
+       59,   59,   59
     } ;
 
 static const flex_int16_t yy_chk[104] =
@@ -450,15 +453,15 @@ static const flex_int16_t yy_chk[104] =
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,   22,   50,   48,   47,   22,
-       51,   46,   51,   44,   43,   42,   41,   40,   39,   38,
-       37,   36,   35,   33,   31,   30,   26,   25,   23,   21,
-       17,   16,   15,   13,   12,    7,    3,   49,   49,   49,
-       49,   49,   49,   49,   49,   49,   49,   49,   49,   49,
-       49,   49,   49,   49,   49,   49,   49,   49,   49,   49,
-       49,   49,   49,   49,   49,   49,   49,   49,   49,   49,
+        1,    1,    1,    1,    1,   24,   60,   56,   55,   24,
+       61,   53,   61,   50,   49,   48,   46,   45,   44,   43,
+       42,   41,   40,   38,   33,   32,   28,   27,   25,   23,
+       19,   18,   17,   15,   14,    7,    3,   59,   59,   59,
+       59,   59,   59,   59,   59,   59,   59,   59,   59,   59,
+       59,   59,   59,   59,   59,   59,   59,   59,   59,   59,
+       59,   59,   59,   59,   59,   59,   59,   59,   59,   59,
 
-       49,   49,   49
+       59,   59,   59
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -479,11 +482,12 @@ char *yytext;
 #line 2 "Analisador_lexico.l"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include "sintatico.tab.h"
+extern YYSTYPE yylval;
 int num_linha=0;
 int i;
-#line 486 "lex.yy.c"
-#line 487 "lex.yy.c"
+#line 490 "lex.yy.c"
+#line 491 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -700,9 +704,9 @@ YY_DECL
 		}
 
 	{
-#line 25 "Analisador_lexico.l"
+#line 40 "Analisador_lexico.l"
 
-#line 706 "lex.yy.c"
+#line 710 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -729,7 +733,7 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 50 )
+				if ( yy_current_state >= 60 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -761,73 +765,251 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 26 "Analisador_lexico.l"
-printf("< NUM: %s >", yytext);
+#line 41 "Analisador_lexico.l"
+{
+    /*yylval = strdup(yytext);*/
+    /*printf("< RVD: %s >", yytext);*/
+    /*return IF;*/
+}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 27 "Analisador_lexico.l"
-printf("< RVD: %s >", yytext);
+#line 46 "Analisador_lexico.l"
+{
+    /*yylval = strdup(yytext);*/
+    /*printf("< RVD: %s >", yytext);*/
+    /*return ELSE;*/
+}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 28 "Analisador_lexico.l"
-printf("< ID: %s >", yytext);
+#line 51 "Analisador_lexico.l"
+{
+    /*yylval = strdup(yytext);*/
+    /*printf("< RVD: %s >", yytext);*/
+    /*return INT;*/
+}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 29 "Analisador_lexico.l"
-printf("< OP_ARTM: %s >", yytext);
+#line 56 "Analisador_lexico.l"
+{
+    /*yylval = strdup(yytext);*/
+    /*printf("< RVD: %s >", yytext);*/
+    /*return RETURN;*/
+}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 30 "Analisador_lexico.l"
-printf("< OP_REL: %s >", yytext);
+#line 61 "Analisador_lexico.l"
+{
+    /*yylval = strdup(yytext);*/
+    /*printf("< RVD: %s >", yytext);*/
+    /*return VOID;*/
+}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 31 "Analisador_lexico.l"
-printf("< COLCH_P: %s >", yytext);
+#line 66 "Analisador_lexico.l"
+{
+    /*yylval = strdup(yytext);*/
+    /*printf("< RVD: %s >", yytext);*/
+    /*return WHILE;*/
+}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 32 "Analisador_lexico.l"
-printf("< COLCH_F: %s >", yytext);
+#line 71 "Analisador_lexico.l"
+{
+    yylval.number = atoi(yytext);
+    printf("< NUM: %s >", yytext); 
+    return NUM;
+}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 33 "Analisador_lexico.l"
-printf("< PARENT_P: %s >", yytext);
+#line 76 "Analisador_lexico.l"
+{
+    yylval.str = strdup(yytext);
+    printf("< ID: %s >", yytext);
+    return ID;
+}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 34 "Analisador_lexico.l"
-printf("< PARENT_F: %s >", yytext);
+#line 81 "Analisador_lexico.l"
+{
+    yylval.opr = atoi(yytext);
+    printf("< OP_ARTM: %s >", yytext);
+    return SOM;
+}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 35 "Analisador_lexico.l"
-printf("< CHV_P: %s >", yytext);
+#line 86 "Analisador_lexico.l"
+{
+    yylval.opr = atoi(yytext);
+    printf("< OP_ARTM: %s >", yytext);
+    return SUB;
+}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 36 "Analisador_lexico.l"
-printf("< CHV_F: %s >", yytext);
+#line 91 "Analisador_lexico.l"
+{
+    yylval.opr = atoi(yytext);
+    printf("< OP_ARTM: %s >", yytext);
+    return MULT;
+}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 37 "Analisador_lexico.l"
-printf("< PEV: %s >", yytext);
+#line 96 "Analisador_lexico.l"
+{
+    yylval.opr = atoi(yytext);
+    printf("< OP_ARTM: %s >", yytext);
+    return DIV;
+}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 38 "Analisador_lexico.l"
-printf("< VG: %s >", yytext);
+#line 101 "Analisador_lexico.l"
+{
+    /*yylval = strdup(yytext);*/
+    printf("< OP_ARTM: %s >", yytext);
+    return IGUAL;
+}
 	YY_BREAK
 case 14:
-/* rule 14 can match eol */
 YY_RULE_SETUP
-#line 39 "Analisador_lexico.l"
+#line 106 "Analisador_lexico.l"
+{
+    yylval.opr = atoi(yytext);
+    printf("< OP_REL: %s >", yytext);
+    return MENOR;
+}
+	YY_BREAK
+case 15:
+YY_RULE_SETUP
+#line 111 "Analisador_lexico.l"
+{
+    yylval.opr = atoi(yytext);
+    printf("< OP_REL: %s >", yytext);
+    return MENORIGUAL;
+}
+	YY_BREAK
+case 16:
+YY_RULE_SETUP
+#line 116 "Analisador_lexico.l"
+{
+    yylval.opr = atoi(yytext);
+    printf("< OP_REL: %s >", yytext);
+    return MAIOR;
+}
+	YY_BREAK
+case 17:
+YY_RULE_SETUP
+#line 121 "Analisador_lexico.l"
+{
+    yylval.opr = atoi(yytext);
+    printf("< OP_REL: %s >", yytext);
+    return MAIORIGUAL;
+}
+	YY_BREAK
+case 18:
+YY_RULE_SETUP
+#line 126 "Analisador_lexico.l"
+{
+    yylval.opr = atoi(yytext);
+    printf("< OP_REL: %s >", yytext);
+    return DIFERENTE;
+}
+	YY_BREAK
+case 19:
+YY_RULE_SETUP
+#line 131 "Analisador_lexico.l"
+{
+    yylval.opr = atoi(yytext);
+    printf("< OP_REL: %s >", yytext);
+    return IGUALIGUAL;
+}
+	YY_BREAK
+case 20:
+YY_RULE_SETUP
+#line 136 "Analisador_lexico.l"
+{
+    /*yylval = strdup(yytext);*/ 
+    printf("< ABR_COLCH: %s >", yytext); 
+    return ABR_COLCH;
+}
+	YY_BREAK
+case 21:
+YY_RULE_SETUP
+#line 141 "Analisador_lexico.l"
+{
+    /*yylval = strdup(yytext);*/ 
+    printf("< FECH_COLCH: %s >", yytext); 
+    return FECH_COLCH;
+}
+	YY_BREAK
+case 22:
+YY_RULE_SETUP
+#line 146 "Analisador_lexico.l"
+{
+    /*yylval = strdup(yytext);*/
+    printf("< ABR_PAR: %s >", yytext);
+    return ABR_PAR;    
+}
+	YY_BREAK
+case 23:
+YY_RULE_SETUP
+#line 151 "Analisador_lexico.l"
+{
+    /*yylval = strdup(yytext);*/
+    printf("< FECH_PAR: %s >", yytext);
+    return FECH_PAR;    
+}
+	YY_BREAK
+case 24:
+YY_RULE_SETUP
+#line 156 "Analisador_lexico.l"
+{
+    /*yylval = strdup(yytext);*/
+    printf("< ABR_CHV: %s >", yytext);
+    /*return ABR_CHV;*/    
+}
+	YY_BREAK
+case 25:
+YY_RULE_SETUP
+#line 161 "Analisador_lexico.l"
+{
+    /*yylval = strdup(yytext);*/
+    printf("< FECH_CHV: %s >", yytext);
+    /*return FECH_CHV;*/
+}
+	YY_BREAK
+case 26:
+YY_RULE_SETUP
+#line 166 "Analisador_lexico.l"
+{
+    /*yylval = strdup(yytext);*/
+    printf("< PEV: %s >", yytext);
+    /*return PEV*/
+}
+	YY_BREAK
+case 27:
+YY_RULE_SETUP
+#line 171 "Analisador_lexico.l"
+{
+    /*yylval = strdup(yytext);
+    printf("< VG: %s >", yytext);
+    return VG;*/
+}
+	YY_BREAK
+case 28:
+/* rule 28 can match eol */
+YY_RULE_SETUP
+#line 176 "Analisador_lexico.l"
 {
     for(i=0; i<strlen(yytext); i++){
         if(yytext[i]=='\n'){
@@ -839,32 +1021,35 @@ YY_RULE_SETUP
     }
 }
 	YY_BREAK
-case 15:
-/* rule 15 can match eol */
+case 29:
+/* rule 29 can match eol */
 YY_RULE_SETUP
-#line 49 "Analisador_lexico.l"
-printf(" Linha %d%s", ++num_linha, yytext); 
+#line 186 "Analisador_lexico.l"
+{
+    printf(" Linha %d%s", ++num_linha, yytext);
+    return LINHA;   
+}
 	YY_BREAK
-case 16:
+case 30:
 YY_RULE_SETUP
-#line 50 "Analisador_lexico.l"
+#line 190 "Analisador_lexico.l"
 
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
-#line 51 "Analisador_lexico.l"
-return printf(" Linha %d ", ++num_linha);
+#line 191 "Analisador_lexico.l"
+printf(" Linha %d ", ++num_linha); exit(-1); return NULO; 
 	YY_BREAK
-case 17:
+case 31:
 YY_RULE_SETUP
-#line 52 "Analisador_lexico.l"
+#line 192 "Analisador_lexico.l"
 printf("Erro: %s Linha: %d", yytext, ++num_linha); fflush(stdout);exit(-1);
 	YY_BREAK
-case 18:
+case 32:
 YY_RULE_SETUP
-#line 53 "Analisador_lexico.l"
+#line 193 "Analisador_lexico.l"
 ECHO;
 	YY_BREAK
-#line 868 "lex.yy.c"
+#line 1053 "lex.yy.c"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -1159,7 +1344,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 50 )
+			if ( yy_current_state >= 60 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1187,11 +1372,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 50 )
+		if ( yy_current_state >= 60 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 49);
+	yy_is_jam = (yy_current_state == 59);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1867,9 +2052,9 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 53 "Analisador_lexico.l"
+#line 193 "Analisador_lexico.l"
 
-int main(int argc, char *argv[]){
+/*int main(int argc, char *argv[]){
     FILE *arquivo;
 
     if(argc==2){
@@ -1883,5 +2068,5 @@ int main(int argc, char *argv[]){
     }
     yylex();
     return 0;
-}
+}*/
 

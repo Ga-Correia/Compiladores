@@ -1,3 +1,6 @@
-5 + 2
-4 > 3
-5*5 <= 30 - 5
+int main(void){
+    int a = 5;
+    int b = 2;
+    int c = a + b;
+    return c;
+}

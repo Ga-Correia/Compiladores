@@ -482,7 +482,7 @@ char *yytext;
 #line 2 "Analisador_lexico.l"
 #include <stdio.h>
 #include <stdlib.h>
-#include "sintatico.tab.h"
+#include "Analisador_sintatico.tab.h"
 extern YYSTYPE yylval;
 int num_linha=0;
 int i;
@@ -768,8 +768,8 @@ YY_RULE_SETUP
 #line 41 "Analisador_lexico.l"
 {
     /*yylval = strdup(yytext);*/
-    /*printf("< RVD: %s >", yytext);*/
-    /*return IF;*/
+    printf("< RVD: %s >", yytext);
+    return IF;
 }
 	YY_BREAK
 case 2:
@@ -777,8 +777,8 @@ YY_RULE_SETUP
 #line 46 "Analisador_lexico.l"
 {
     /*yylval = strdup(yytext);*/
-    /*printf("< RVD: %s >", yytext);*/
-    /*return ELSE;*/
+    printf("< RVD: %s >", yytext);
+    return ELSE;
 }
 	YY_BREAK
 case 3:
@@ -786,8 +786,8 @@ YY_RULE_SETUP
 #line 51 "Analisador_lexico.l"
 {
     /*yylval = strdup(yytext);*/
-    /*printf("< RVD: %s >", yytext);*/
-    /*return INT;*/
+    printf("< RVD: %s >", yytext);
+    return INT;
 }
 	YY_BREAK
 case 4:
@@ -795,8 +795,8 @@ YY_RULE_SETUP
 #line 56 "Analisador_lexico.l"
 {
     /*yylval = strdup(yytext);*/
-    /*printf("< RVD: %s >", yytext);*/
-    /*return RETURN;*/
+    printf("< RVD: %s >", yytext);
+    return RETURN;
 }
 	YY_BREAK
 case 5:
@@ -804,8 +804,8 @@ YY_RULE_SETUP
 #line 61 "Analisador_lexico.l"
 {
     /*yylval = strdup(yytext);*/
-    /*printf("< RVD: %s >", yytext);*/
-    /*return VOID;*/
+    printf("< RVD: %s >", yytext);
+    return VOID;
 }
 	YY_BREAK
 case 6:
@@ -813,8 +813,8 @@ YY_RULE_SETUP
 #line 66 "Analisador_lexico.l"
 {
     /*yylval = strdup(yytext);*/
-    /*printf("< RVD: %s >", yytext);*/
-    /*return WHILE;*/
+    printf("< RVD: %s >", yytext);
+    return WHILE;
 }
 	YY_BREAK
 case 7:
@@ -875,7 +875,7 @@ case 13:
 YY_RULE_SETUP
 #line 101 "Analisador_lexico.l"
 {
-    /*yylval = strdup(yytext);*/
+    yylval.opr = atoi(yytext);
     printf("< OP_ARTM: %s >", yytext);
     return IGUAL;
 }
@@ -938,7 +938,7 @@ case 20:
 YY_RULE_SETUP
 #line 136 "Analisador_lexico.l"
 {
-    /*yylval = strdup(yytext);*/ 
+    yylval.str = strdup(yytext); 
     printf("< ABR_COLCH: %s >", yytext); 
     return ABR_COLCH;
 }
@@ -947,7 +947,7 @@ case 21:
 YY_RULE_SETUP
 #line 141 "Analisador_lexico.l"
 {
-    /*yylval = strdup(yytext);*/ 
+    yylval.str = strdup(yytext); 
     printf("< FECH_COLCH: %s >", yytext); 
     return FECH_COLCH;
 }
@@ -956,7 +956,7 @@ case 22:
 YY_RULE_SETUP
 #line 146 "Analisador_lexico.l"
 {
-    /*yylval = strdup(yytext);*/
+    yylval.str = strdup(yytext);
     printf("< ABR_PAR: %s >", yytext);
     return ABR_PAR;    
 }
@@ -965,7 +965,7 @@ case 23:
 YY_RULE_SETUP
 #line 151 "Analisador_lexico.l"
 {
-    /*yylval = strdup(yytext);*/
+    yylval.str = strdup(yytext);
     printf("< FECH_PAR: %s >", yytext);
     return FECH_PAR;    
 }
@@ -974,36 +974,36 @@ case 24:
 YY_RULE_SETUP
 #line 156 "Analisador_lexico.l"
 {
-    /*yylval = strdup(yytext);*/
+    yylval.str = strdup(yytext);
     printf("< ABR_CHV: %s >", yytext);
-    /*return ABR_CHV;*/    
+    return ABR_CHV;    
 }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
 #line 161 "Analisador_lexico.l"
 {
-    /*yylval = strdup(yytext);*/
+    yylval.str = strdup(yytext);
     printf("< FECH_CHV: %s >", yytext);
-    /*return FECH_CHV;*/
+    return FECH_CHV;
 }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
 #line 166 "Analisador_lexico.l"
 {
-    /*yylval = strdup(yytext);*/
+    yylval.str = strdup(yytext);
     printf("< PEV: %s >", yytext);
-    /*return PEV*/
+    return PEV;
 }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
 #line 171 "Analisador_lexico.l"
 {
-    /*yylval = strdup(yytext);
+    yylval.str = strdup(yytext);
     printf("< VG: %s >", yytext);
-    return VG;*/
+    return VG;
 }
 	YY_BREAK
 case 28:
@@ -1037,12 +1037,12 @@ YY_RULE_SETUP
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
 #line 191 "Analisador_lexico.l"
-printf(" Linha %d ", ++num_linha); exit(-1); return NULO; 
+printf("LINHA %d ", ++num_linha); return 0; 
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
 #line 192 "Analisador_lexico.l"
-printf("Erro: %s Linha: %d", yytext, ++num_linha); fflush(stdout);exit(-1);
+printf("ERRO: %s LINHA: %d", yytext, ++num_linha); fflush(stdout);exit(-1);
 	YY_BREAK
 case 32:
 YY_RULE_SETUP

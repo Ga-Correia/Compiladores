@@ -1,7 +1,7 @@
 %{
 #include <stdio.h>
 #include <stdlib.h>
-#include "sintatico.tab.h"
+#include "Analisador_sintatico.tab.h"
 extern YYSTYPE yylval;
 int num_linha=0;
 int i;
@@ -40,33 +40,33 @@ PONTOVIRGULA ;
 %%
 {IF} {
     /*yylval = strdup(yytext);*/
-    /*printf("< RVD: %s >", yytext);*/
-    /*return IF;*/
+    printf("< RVD: %s >", yytext);
+    return IF;
 }
 {ELSE} {
     /*yylval = strdup(yytext);*/
-    /*printf("< RVD: %s >", yytext);*/
-    /*return ELSE;*/
+    printf("< RVD: %s >", yytext);
+    return ELSE;
 }
 {INT} {
     /*yylval = strdup(yytext);*/
-    /*printf("< RVD: %s >", yytext);*/
-    /*return INT;*/
+    printf("< RVD: %s >", yytext);
+    return INT;
 }
 {RETURN} {
     /*yylval = strdup(yytext);*/
-    /*printf("< RVD: %s >", yytext);*/
-    /*return RETURN;*/
+    printf("< RVD: %s >", yytext);
+    return RETURN;
 }
 {VOID} {
     /*yylval = strdup(yytext);*/
-    /*printf("< RVD: %s >", yytext);*/
-    /*return VOID;*/
+    printf("< RVD: %s >", yytext);
+    return VOID;
 }
 {WHILE} {
     /*yylval = strdup(yytext);*/
-    /*printf("< RVD: %s >", yytext);*/
-    /*return WHILE;*/
+    printf("< RVD: %s >", yytext);
+    return WHILE;
 }
 {NUM} {
     yylval.number = atoi(yytext);
@@ -99,7 +99,7 @@ PONTOVIRGULA ;
     return DIV;
 }
 {IGUAL} {
-    /*yylval = strdup(yytext);*/
+    yylval.opr = atoi(yytext);
     printf("< OP_ARTM: %s >", yytext);
     return IGUAL;
 }
@@ -134,44 +134,44 @@ PONTOVIRGULA ;
     return IGUALIGUAL;
 }
 {ABR_COLCH} {
-    /*yylval = strdup(yytext);*/ 
+    yylval.str = strdup(yytext); 
     printf("< ABR_COLCH: %s >", yytext); 
     return ABR_COLCH;
 }
 {FECH_COLCH} {
-    /*yylval = strdup(yytext);*/ 
+    yylval.str = strdup(yytext); 
     printf("< FECH_COLCH: %s >", yytext); 
     return FECH_COLCH;
 }
 {ABR_PAR} {
-    /*yylval = strdup(yytext);*/
+    yylval.str = strdup(yytext);
     printf("< ABR_PAR: %s >", yytext);
     return ABR_PAR;    
 }
 {FECH_PAR} {
-    /*yylval = strdup(yytext);*/
+    yylval.str = strdup(yytext);
     printf("< FECH_PAR: %s >", yytext);
     return FECH_PAR;    
 }
 {ABR_CHV} {
-    /*yylval = strdup(yytext);*/
+    yylval.str = strdup(yytext);
     printf("< ABR_CHV: %s >", yytext);
-    /*return ABR_CHV;*/    
+    return ABR_CHV;    
 }
 {FECH_CHV} {
-    /*yylval = strdup(yytext);*/
+    yylval.str = strdup(yytext);
     printf("< FECH_CHV: %s >", yytext);
-    /*return FECH_CHV;*/
+    return FECH_CHV;
 }
 {PONTOVIRGULA} {
-    /*yylval = strdup(yytext);*/
+    yylval.str = strdup(yytext);
     printf("< PEV: %s >", yytext);
-    /*return PEV*/
+    return PEV;
 }
 {VIRGULA} {
-    /*yylval = strdup(yytext);
+    yylval.str = strdup(yytext);
     printf("< VG: %s >", yytext);
-    return VG;*/
+    return VG;
 }
 {COMENTARIO} {
     for(i=0; i<strlen(yytext); i++){
@@ -188,8 +188,8 @@ PONTOVIRGULA ;
     return LINHA;   
 }
 [ \s\t]
-<<EOF>> printf(" Linha %d ", ++num_linha); exit(-1); return NULO; 
-. printf("Erro: %s Linha: %d", yytext, ++num_linha); fflush(stdout);exit(-1);
+<<EOF>> printf("LINHA %d ", ++num_linha); return 0; 
+. printf("ERRO: %s LINHA: %d", yytext, ++num_linha); fflush(stdout);exit(-1);
 %%
 /*int main(int argc, char *argv[]){
     FILE *arquivo;

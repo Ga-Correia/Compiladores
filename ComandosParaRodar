@@ -1,0 +1,7 @@
+COLOCA NO TERMINAL:
+
+bison -d Analisador_sintatico.y
+flex Analisador_lexico.l
+gcc -c lex.yy.c
+gcc -o exec Compilador_Main.c lex.yy.o Analisador_sintatico.tab.c Biblioteca.c -lfl
+./exec CodigoTeste.c
